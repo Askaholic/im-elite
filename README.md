@@ -1,4 +1,5 @@
-# README
+# im-elite
+A web app for tracking intramural sports team's created for my CS425 Database Systems class
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
