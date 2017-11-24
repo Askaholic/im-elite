@@ -1,4 +1,16 @@
-<p>
+<div>
   <strong>Name:</strong>
   <%= @team.name %>
-</p>
+</div>
+
+<div>
+  <strong>Players:</strong>
+  <ul>
+    <% @team.players.each do |player| %>
+      <li><%= player.first_name + " " + player.last_name%></li>
+    <% end %>
+  </ul>
+</div>
+
+<%= link_to 'Edit', edit_team_path(@team) %>
+<%= link_to 'Back', teams_path %>

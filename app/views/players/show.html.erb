@@ -1,0 +1,16 @@
+<div>
+  <strong>Name:</strong>
+  <%= @player.first_name + " " + @player.last_name %>
+</div>
+
+<div>
+  <strong>Team:</strong>
+  <% if @player.team %>
+    <%= @player.team.name %>
+  <% else %>
+    This player is not on a team!
+  <% end %>
+</div>
+
+<%= link_to 'Edit', edit_player_path(@player) %>
+<%= link_to 'Back', players_path %>
