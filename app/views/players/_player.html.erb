@@ -1,0 +1,15 @@
+<div class="card mb-2">
+  <div class="card-body">
+    <%= link_to 'X', player_path(player),
+            class: 'float-right btn btn-sm btn-danger',
+            method: :delete,
+            data: { confirm: 'Are you sure you want to destroy ' + player.first_name + '?'} %>
+    <h3><%= link_to (player.first_name + " " + player.last_name), player_path(player) %></h3>
+    <% if player.team %>
+      <p class="float-left mb-0"><%= player.team.name %></p>
+    <% else %>
+
+    <% end %>
+    <%= link_to 'Edit', edit_player_path(player), class: 'float-right btn btn-sm btn-secondary' %>
+  </div>
+</div>

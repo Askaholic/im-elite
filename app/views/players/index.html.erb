@@ -1,24 +1,6 @@
+<%= link_to 'New Player', new_player_path, class: "float-right btn btn-primary mb-4" %>
 <h1>All Players</h1>
+<br />
+<hr />
 
-<%= link_to 'New Player', new_player_path %>
-
-<table>
-  <tr>
-    <th>First</th>
-    <th>Last</th>
-    <th>Team</th>
-  </tr>
-
-  <% @players.each do |player| %>
-    <tr>
-      <td><%= player.first_name %></td>
-      <td><%= player.last_name %></td>
-      <td><%= player.team_id %></td>
-      <td><%= link_to 'Show', player_path(player) %></td>
-      <td><%= link_to 'Edit', edit_player_path(player) %></td>
-      <td><%= link_to 'Destroy', player_path(player),
-              method: :delete,
-              data: { confirm: 'Are you sure you want to destroy ' + player.first_name + '?'} %></td>
-    </tr>
-  <% end %>
-</table>
+<%= render @players %>
