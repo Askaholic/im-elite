@@ -1,36 +1,37 @@
 class PlayersController < ApplicationController
 
   def index
-    @players = Player.all
+    @org = Organization.find(params[:organization_id])
+    @players = @org.players
   end
 
   def show
+    @org = Organization.find(params[:organization_id])
     @player = Player.find(params[:id])
   end
 
   def new
+    @org = Organization.find(params[:organization_id])
     @player = Player.new
   end
 
   def edit
+    @org = Organization.find(params[:organization_id])
     @player = Player.find(params[:id])
   end
 
   def create
-    @player = Player.new(player_params)
+    @org = Organization.find(params[:organization_id])
+    @player = @org.players.create(player_params)
 
-    if @player.save
-      redirect_to players_path
-    else
-      render 'new'
-    end
+    redirect_to organization_players_path
   end
 
   def update
     @player = Player.find(params[:id])
 
     if @player.update(player_params)
-      redirect_to players_path
+      redirect_to organization_players_path
     else
       render 'edit'
     end

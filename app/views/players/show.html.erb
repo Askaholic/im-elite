@@ -1,8 +1,8 @@
-<h1>Player Info</h1>
+<h1><%= @org.name %> > Player Info</h1>
 
 <div class="card mb-2">
   <div class="card-body">
-    <%= link_to 'Edit', edit_player_path(@player), class: 'float-right btn btn-sm btn-secondary' %>
+    <%= link_to 'Edit', [:edit, @org, @player], class: 'float-right btn btn-sm btn-secondary' %>
     <h3><%= @player.first_name + " " + @player.last_name %></h3>
     <p>
       <% if @player.team %>
@@ -14,4 +14,3 @@
   </div>
 </div>
 
-<%= link_to 'Back', players_path, class: "btn btn-primary" %>

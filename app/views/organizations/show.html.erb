@@ -1,0 +1,13 @@
+<h1>Organization Info</h1>
+
+<div class="card mb-2">
+  <div class="card-body">
+    <%= link_to 'Edit', edit_organization_path(@org), class: 'float-right btn btn-sm btn-secondary' %>
+    <h3><%= @org.name %></h3>
+    <%= link_to 'Teams', [@org, :teams] %>
+    <br />
+    <%= link_to 'Players', [@org, :players] %>
+  </div>
+</div>
+
+<%= link_to 'Back', organizations_path, class: "btn btn-primary" %>

@@ -1,9 +1,9 @@
-<%= form_with model: @player, local: true do |form| %>
+<%= form_with(model: [@org, @player]) do |form| %>
 
   <% if @player.errors.any? %>
     <div id="error_explanation">
       <h2>
-        <%= pluralize(@player.errors.count, "error") %> prohibited this team from being saved:
+        <%= pluralize(@player.errors.count, "error") %> prohibited this player from being saved:
       </h2>
       <ul>
         <%= @player.errors.full_messages.each do |msg| %>
@@ -25,7 +25,7 @@
 
   <div class="form-group">
     <%= form.label :team %>
-    <%= form.collection_select :team_id, Team.all, :id, :name, {include_blank: true, selected: @player.team_id}, {class: 'form-control'} %>
+    <%= form.collection_select :team_id, @org.teams.all, :id, :name, {include_blank: true, selected: @player.team_id}, {class: 'form-control'} %>
   </div>
 
   <div class="form-group">
