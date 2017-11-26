@@ -2,16 +2,15 @@
 
 <div class="card mb-2">
   <div class="card-body">
-    <%= link_to 'Edit', edit_team_path(@team), class: 'float-right btn btn-sm btn-secondary' %>
-    
+    <%= link_to 'Edit', [:edit, @org, @season, @league, @team], class: 'float-right btn btn-sm btn-secondary' %>
+
     <h3><%= @team.name %></h3>
     <ul>
       <% @team.players.each do |player| %>
-        <li><%= player.first_name + " " + player.last_name%></li>
+        <li><%= player.identifier %></li>
       <% end %>
     </ul>
   </div>
 </div>
 
-<%= link_to 'Back', teams_path, class: ' btn btn-primary' %>
-
+<%= link_to 'Back', [@org, @season, @league, :teams], class: ' btn btn-primary' %>

@@ -1,4 +1,4 @@
-<%= form_with model: @team, local: true do |form| %>
+<%= form_with model: [@org, @season, @league, @team], local: true do |form| %>
 
   <% if @team.errors.any? %>
     <div id="error_explanation">
@@ -14,8 +14,18 @@
   <% end %>
 
   <div class="form-group">
-    <%= form.label :name %><br/>
+    <%= form.label :name %><br />
     <%= form.text_field :name, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label 'Players' %><br />
+    <% @org.players.each do |player| %>
+      <%= fields_for 'players[]', player do |player_fields| %>
+        <%= player_fields.check_box :id, checked: @team.id == player.team_id %>
+        <%= player.identifier %><br />
+      <% end %>
+    <% end %>
   </div>
 
   <div class="form-group">
