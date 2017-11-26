@@ -1,0 +1,10 @@
+<div class="card mb-2">
+  <div class="card-body">
+    <%= link_to 'X', [season.organization, season],
+            class: 'float-right btn btn-sm btn-danger',
+            method: :delete,
+            data: { confirm: 'Are you sure you want to destroy this season?'} %>
+    <h3><%= link_to (season.start_date.strftime("%b %-d, %Y") + " - " + season.end_date.strftime("%b %-d, %Y")), [season.organization, season] %></h3>
+    <%= link_to 'Edit', [:edit, season.organization, season], class: 'float-right btn btn-sm btn-secondary' %>
+  </div>
+</div>

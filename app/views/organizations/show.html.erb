@@ -4,7 +4,7 @@
   <div class="card-body">
     <%= link_to 'Edit', edit_organization_path(@org), class: 'float-right btn btn-sm btn-secondary' %>
     <h3><%= @org.name %></h3>
-    <%= link_to 'Teams', [@org, :teams] %>
+    <%= link_to 'Seasons', [@org, :seasons] %>
     <br />
     <%= link_to 'Players', [@org, :players] %>
   </div>

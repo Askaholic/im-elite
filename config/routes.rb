@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
+
   get 'home/index'
 
+  resources :teams
+  
   resources :organizations do
-    resources :teams
+    resources :seasons
     resources :players
   end
 

@@ -41,7 +41,7 @@ class PlayersController < ApplicationController
     @player = Player.find(params[:id])
     @player.destroy
 
-    redirect_to players_path
+    redirect_to organization_players_path
   end
 
   private
