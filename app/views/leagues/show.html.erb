@@ -1,0 +1,9 @@
+<h1>League Info</h1>
+
+<div class="card mb-2">
+  <div class="card-body">
+    <%= link_to 'Edit', [:edit, @org, @season, @league], class: 'float-right btn btn-sm btn-secondary' %>
+    <h3><%= @league.identifier %></h3>
+    <%= link_to 'Teams', [@org, @season, @league, :teams] %>
+  </div>
+</div>

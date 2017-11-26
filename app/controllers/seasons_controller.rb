@@ -6,7 +6,7 @@ class SeasonsController < ApplicationController
 
   def show
     @org = Organization.find(params[:organization_id])
-    @season = Season.find(params[:id])
+    @season = @org.seasons.find(params[:id])
   end
 
   def new
@@ -16,7 +16,7 @@ class SeasonsController < ApplicationController
 
   def edit
     @org = Organization.find(params[:organization_id])
-    @season = Season.find(params[:id])
+    @season = @org.seasons.find(params[:id])
   end
 
   def create
@@ -27,7 +27,8 @@ class SeasonsController < ApplicationController
   end
 
   def update
-    @season = Season.find(params[:id])
+    @org = Organization.find(params[:organization_id])
+    @season = @org.seasons.find(params[:id])
 
     if @season.update(season_params)
       redirect_to organization_seasons_path
@@ -37,7 +38,8 @@ class SeasonsController < ApplicationController
   end
 
   def destroy
-    @season = Season.find(params[:id])
+    @org = Organization.find(params[:organization_id])
+    @season = @org.seasons.find(params[:id])
     @season.destroy
 
     redirect_to organization_seasons_path

@@ -2,10 +2,12 @@ Rails.application.routes.draw do
 
   get 'home/index'
 
-  resources :teams
-  
   resources :organizations do
-    resources :seasons
+    resources :seasons do
+      resources :leagues do
+        resources :teams
+      end
+    end
     resources :players
   end
 

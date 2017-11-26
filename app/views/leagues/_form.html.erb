@@ -1,0 +1,29 @@
+<%= form_with(model: [@org, @season, @league]) do |form| %>
+
+  <% if @league.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@league.errors.count, "error") %> prohibited this league from being saved:
+      </h2>
+      <ul>
+        <%= @league.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :sport %><br />
+    <%= form.collection_select :sport_name, Sport.all, :name, :name, {selected: @league.sport}, {class: 'form-control'} %>
+  </div>
+
+  <div class="form-group">
+   <%= form.label :l_type, 'Type' %><br />
+   <%= form.text_field :l_type, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.submit class: 'btn btn-primary' %>
+  </div>
+<% end %>

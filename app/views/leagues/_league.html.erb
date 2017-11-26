@@ -1,0 +1,10 @@
+<div class="card mb-2">
+  <div class="card-body">
+    <%= link_to 'X', [@org, @season, league],
+            class: 'float-right btn btn-sm btn-danger',
+            method: :delete,
+            data: { confirm: 'Are you sure you want to destroy ' + league.identifier + '?'} %>
+    <h3><%= link_to (league.identifier), [@org, @season, league] %></h3>
+    <%= link_to 'Edit', [:edit, @org, @season, league], class: 'float-right btn btn-sm btn-secondary' %>
+  </div>
+</div>

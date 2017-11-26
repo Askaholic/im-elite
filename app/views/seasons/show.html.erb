@@ -3,6 +3,7 @@
 <div class="card mb-2">
   <div class="card-body">
     <%= link_to 'Edit', [:edit, @org, @season], class: 'float-right btn btn-sm btn-secondary' %>
-    <h3><%= @season.start_date.strftime("%b %-d, %Y") + " - " + @season.end_date.strftime("%b %-d, %Y") %></h3>
+    <h3><%= @season.identifier%></h3>
+    <%= link_to 'Leagues', [@org, @season, :leagues] %>
   </div>
 </div>
