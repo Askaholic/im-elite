@@ -4,6 +4,7 @@
   <div class="card-body">
     <%= link_to 'Edit', [:edit, @org, @season, @league], class: 'float-right btn btn-sm btn-secondary' %>
     <h3><%= @league.identifier %></h3>
-    <%= link_to 'Teams', [@org, @season, @league, :teams] %>
+    <%= link_to 'Teams', [@org, @season, @league, :teams] %><br />
+    <%= link_to 'Games', [@org, @season, @league, :games] %>
   </div>
 </div>

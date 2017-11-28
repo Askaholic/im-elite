@@ -10,7 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171126223321) do
+ActiveRecord::Schema.define(version: 20171128015209) do
+
+  create_table "games", force: :cascade do |t|
+    t.datetime "date", null: false
+    t.decimal "team_1_points", default: "0.0"
+    t.decimal "team_2_points", default: "0.0"
+    t.integer "team_1_id", null: false
+    t.integer "team_2_id", null: false
+    t.integer "team_winner_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "league_id"
+    t.index ["league_id"], name: "index_games_on_league_id"
+    t.index ["team_1_id"], name: "index_games_on_team_1_id"
+    t.index ["team_2_id"], name: "index_games_on_team_2_id"
+    t.index ["team_winner_id"], name: "index_games_on_team_winner_id"
+  end
 
   create_table "league_types", force: :cascade do |t|
     t.string "name"

@@ -50,7 +50,7 @@ class TeamsController < ApplicationController
     players.each do |id|
       player = @org.players.find(id)
       if player.team_id != @team.id and player.team != nil
-        continue
+        next
       end
 
       player.update(team_id: players[id][:id] == '1' ? @team.id : nil)
