@@ -30,7 +30,7 @@ seed_table(LeagueType, [
 # Insert DB data (at least 500 rows)
 row_count = 0
 
-for i in 1..5 do
+for i in 1..3 do
   org = Organization.create(name: Faker::University.name)
   row_count += 1
   teams = []
@@ -40,13 +40,13 @@ for i in 1..5 do
     for i in 1..3 do
       league = season.leagues.create(sport: Sport.find(rand(1..5)).name, l_type: LeagueType.find(rand(1..2)).name)
       row_count += 1
-      for i in 1..7 do
+      for i in 1..5 do
         teams << league.teams.create(name: Faker::Team.name)
         row_count += 1
       end
     end
   end
-  for i in 1..50 do
+  for i in 1..150 do
     org.players.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, team_id: teams[rand(1..(teams.size - 1))].id)
     row_count += 1
   end
