@@ -4,7 +4,8 @@
   <div class="card-body">
     <%= link_to 'Edit', [:edit, @org, @season, @league, @team], class: 'float-right btn btn-sm btn-secondary' %>
 
-    <h3><%= @team.name %></h3>
+    <h3><%= @team.name %> [<%= @team.wins.to_i.to_s + " - " + @team.losses.to_i.to_s + " - " + @team.ties.to_i.to_s %>]</h3>
+    <label>Players</label><br />
     <ul>
       <% @team.players.each do |player| %>
         <li><%= player.identifier %></li>

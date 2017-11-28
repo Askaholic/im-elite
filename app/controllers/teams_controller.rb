@@ -71,7 +71,7 @@ class TeamsController < ApplicationController
     @team = @league.teams.find(params[:id])
     @team.destroy
 
-    redirect_to teams_path
+    redirect_to organization_season_league_teams_path
   end
 
   private

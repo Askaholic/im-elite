@@ -1,0 +1,16 @@
+<h1>Game Info</h1>
+
+<div class="card mb-2">
+  <div class="card-body">
+    <%= link_to 'Edit', [:edit, @org, @season, @league, @game], class: 'float-right btn btn-sm btn-secondary' %>
+
+    <h3><%= @game.identifier %></h3>
+    <%= @game.date.strftime("%b %-d, %Y @ %a %l:%M %p") %>
+    <ul>
+      <li><%= @game.team_1.name + ' [' + @game.team_1_points.to_i.to_s + '] ' + (@game.team_1_id == @game.team_winner_id ? 'W' : '')%></li>
+      <li><%= @game.team_2.name + ' [' + @game.team_2_points.to_i.to_s + '] ' + (@game.team_2_id == @game.team_winner_id ? 'W' : '')%></li>
+    </ul>
+  </div>
+</div>
+
+<%= link_to 'Back', [@org, @season, @league, :games], class: ' btn btn-primary' %>
